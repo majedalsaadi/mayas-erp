@@ -1,0 +1,287 @@
+/**
+ * Mayas ERP - Global Styles
+ * الأنماط العامة
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* دعم RTL */
+  html[dir="rtl"] {
+    font-family: var(--font-cairo), system-ui, sans-serif;
+  }
+
+  /* تحسين الخط */
+  body {
+    @apply text-gray-900;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* تنسيق النماذج */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="date"],
+  textarea,
+  select {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+    @apply transition-colors duration-200;
+  }
+
+  /* تنسيق الجداول */
+  table {
+    @apply w-full border-collapse;
+  }
+
+  th {
+    @apply bg-gray-50 text-right font-semibold text-gray-700;
+    @apply px-4 py-3 border-b-2 border-gray-200;
+  }
+
+  td {
+    @apply px-4 py-3 border-b border-gray-100;
+  }
+
+  tr:hover {
+    @apply bg-gray-50;
+  }
+
+  /* تنسيق الأزرار */
+  button {
+    @apply transition-all duration-200;
+  }
+
+  /* تنسيق الروابط */
+  a {
+    @apply text-blue-600 hover:text-blue-800 transition-colors;
+  }
+}
+
+@layer components {
+  /* بطاقة */
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100;
+    @apply hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* زر أساسي */
+  .btn-primary {
+    @apply bg-blue-600 text-white font-semibold;
+    @apply px-6 py-2 rounded-lg;
+    @apply hover:bg-blue-700 active:bg-blue-800;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  /* زر ثانوي */
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-700 font-semibold;
+    @apply px-6 py-2 rounded-lg;
+    @apply hover:bg-gray-200 active:bg-gray-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2;
+  }
+
+  /* زر خطر */
+  .btn-danger {
+    @apply bg-red-600 text-white font-semibold;
+    @apply px-6 py-2 rounded-lg;
+    @apply hover:bg-red-700 active:bg-red-800;
+    @apply focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+  }
+
+  /* حقل إدخال */
+  .input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+    @apply transition-colors duration-200;
+  }
+
+  /* حقل إدخال مع خطأ */
+  .input-error {
+    @apply border-red-500 focus:ring-red-500;
+  }
+
+  /* رسالة خطأ */
+  .error-message {
+    @apply text-red-600 text-sm mt-1;
+  }
+
+  /* لافتة */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-danger {
+    @apply bg-red-100 text-red-800;
+  }
+
+  /* تنبيه */
+  .alert {
+    @apply p-4 rounded-lg border-r-4;
+  }
+
+  .alert-info {
+    @apply bg-blue-50 border-blue-500 text-blue-800;
+  }
+
+  .alert-success {
+    @apply bg-green-50 border-green-500 text-green-800;
+  }
+
+  .alert-warning {
+    @apply bg-yellow-50 border-yellow-500 text-yellow-800;
+  }
+
+  .alert-error {
+    @apply bg-red-50 border-red-500 text-red-800;
+  }
+
+  /* شريط جانبي */
+  .sidebar {
+    @apply fixed top-0 right-0 h-full w-64 bg-white shadow-lg;
+    @apply border-l border-gray-200;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3;
+    @apply text-gray-700 hover:bg-gray-50 hover:text-blue-600;
+    @apply transition-colors duration-200;
+  }
+
+  .sidebar-item.active {
+    @apply bg-blue-50 text-blue-600 border-l-4 border-blue-600;
+  }
+
+  /* رأس الصفحة */
+  .header {
+    @apply fixed top-0 left-0 right-64 h-16 bg-white shadow-sm;
+    @apply border-b border-gray-200 flex items-center justify-between px-6;
+  }
+
+  /* المحتوى الرئيسي */
+  .main-content {
+    @apply mr-64 mt-16 p-6 min-h-screen bg-gray-50;
+  }
+
+  /* جدول بيانات */
+  .data-table {
+    @apply w-full bg-white rounded-lg shadow-sm overflow-hidden;
+  }
+
+  .data-table thead {
+    @apply bg-gray-50;
+  }
+
+  .data-table th {
+    @apply px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider;
+  }
+
+  .data-table td {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900;
+  }
+
+  .data-table tbody tr {
+    @apply hover:bg-gray-50 transition-colors;
+  }
+
+  /* بطاقة إحصائية */
+  .stat-card {
+    @apply bg-white rounded-xl p-6 shadow-sm border border-gray-100;
+  }
+
+  .stat-card .label {
+    @apply text-gray-500 text-sm font-medium;
+  }
+
+  .stat-card .value {
+    @apply text-3xl font-bold text-gray-900 mt-2;
+  }
+
+  .stat-card .change {
+    @apply text-sm mt-2 flex items-center gap-1;
+  }
+
+  .stat-card .change.positive {
+    @apply text-green-600;
+  }
+
+  .stat-card .change.negative {
+    @apply text-red-600;
+  }
+}
+
+@layer utilities {
+  /* إخفاء شريط التمرير */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* نص مقطوع */
+  .truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .truncate-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* تأثير التحويم */
+  .hover-lift {
+    @apply transition-transform duration-200;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1;
+  }
+
+  /* تأثير الظل عند التحويم */
+  .hover-shadow {
+    @apply transition-shadow duration-200;
+  }
+
+  .hover-shadow:hover {
+    @apply shadow-lg;
+  }
+}
+
+/* طباعة */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    @apply bg-white text-black;
+  }
+
+  .card {
+    @apply shadow-none border;
+  }
+}
